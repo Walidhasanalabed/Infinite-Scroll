@@ -23,6 +23,11 @@ function imageLoaded() {
   if (imagesLoaded === totalImages) {
     ready = true;
     loader.hidden = true;
+    // Change the background image to the latest loaded image
+    // const latestPhoto = photosArray[totalImages - 1];
+    // document.getElementById(
+    //   "background-container"
+    // ).style.backgroundImage = `url('${latestPhoto.urls.regular}')`;
   }
 }
 
@@ -37,6 +42,13 @@ function setAttributes(element, attributes) {
 function displayPhotos() {
   imagesLoaded = 0;
   totalImages = photosArray.length;
+
+  // Set the first image as the background image
+  const firstPhoto = photosArray[0];
+  document.getElementById(
+    "background-container"
+  ).style.backgroundImage = `url('${firstPhoto.urls.regular}')`;
+
   // Run function for each method object in photosArray
   photosArray.forEach((photo) => {
     // Create <a> to link to Unsplash
